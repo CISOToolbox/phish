@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phish — CISO Toolbox</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/cisotoolbox.css">
+<link rel="stylesheet" href="css/Phish.css">
+</head>
+<body class="ct-app-shell">
+
+<div class="toolbar">
+    <button class="btn-hamburger" data-click="_toggleSidebarMobile">&#9776;</button>
+    <span class="app-title">Phish</span>
+    <span class="flex-spacer"></span>
+    <span class="status" id="status-msg"></span>
+    <span class="toolbar-right" id="toolbar-right"></span>
+</div>
+
+<div class="app-layout">
+
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-collapse" data-click="toggleSidebar" title="Masquer le menu">&#10005;</div>
+    <div class="sidebar-section">PHISH</div>
+
+    <div class="sidebar-item active" data-click="selectPanel" data-args='["dashboard"]'>
+        <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span data-i18n="nav.dashboard">Tableau de bord</span>
+    </div>
+
+    <div class="sidebar-item" data-click="selectPanel" data-args='["campaigns"]'>
+        <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        <span data-i18n="nav.campaigns">Campagnes</span>
+    </div>
+
+    <div class="sidebar-item" data-click="selectPanel" data-args='["templates"]'>
+        <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span data-i18n="nav.templates">Modèles d'email</span>
+    </div>
+
+    <div class="sidebar-item" data-click="selectPanel" data-args='["landings"]'>
+        <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span data-i18n="nav.landings">Pages d'atterrissage</span>
+    </div>
+
+    <div class="sidebar-item" data-click="selectPanel" data-args='["groups"]'>
+        <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span data-i18n="nav.groups">Groupes & cibles</span>
+    </div>
+
+    <div class="sidebar-item" data-click="selectPanel" data-args='["settings"]'>
+        <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span data-i18n="nav.settings">Profils SMTP & paramètres</span>
+    </div>
+
+    <div class="flex-spacer"></div>
+
+    <div class="sidebar-section">AIDE</div>
+    <div class="sidebar-item" data-click="toggleHelp" data-args='["methodo"]'>
+        <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span data-i18n="help.tab_methodo">Méthodologie</span>
+    </div>
+    <div class="sidebar-item" data-click="toggleHelp" data-args='["usage"]'>
+        <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span data-i18n="help.tab_usage">Utilisation</span>
+    </div>
+    <a href="https://www.cisotoolbox.org" target="_blank" rel="noopener noreferrer" class="sidebar-brand">cisotoolbox.org</a>
+</nav>
+
+<main class="main-content">
+
+    <!-- Dashboard -->
+    <section class="panel" id="panel-dashboard">
+        <div class="panel-header">
+            <h2 data-i18n="dashboard.title">Tableau de bord</h2>
+            <button class="btn btn-ghost" data-click="_phishRefreshDashboard">
+                <span data-i18n="campaigns.refresh">Rafraîchir</span>
+            </button>
+        </div>
+        <div id="dashboard-body">
+            <div class="placeholder-card">
+                <p data-i18n="dashboard.empty">Aucune campagne lancée pour le moment. Le tableau de bord affichera les KPIs (envois, ouvertures, clics, soumissions, signalements) dès qu'une campagne sera en cours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaigns -->
+    <section class="panel" id="panel-campaigns" style="display:none">
+        <div id="campaigns-list-view">
+            <div class="panel-header">
+                <h2 data-i18n="campaigns.title">Campagnes</h2>
+                <button class="btn btn-primary" data-click="_phishNewCampaign">
+                    <span data-i18n="campaigns.new">Nouvelle campagne</span>
+                </button>
+            </div>
+            <div id="campaigns-table"></div>
+        </div>
+        <div id="campaign-detail-view" style="display:none"></div>
+    </section>
+
+    <!-- Templates -->
+    <section class="panel" id="panel-templates" style="display:none">
+        <div class="panel-header">
+            <h2 data-i18n="templates.title">Modèles d'email</h2>
+            <button class="btn btn-primary" data-click="_phishNewTemplate">
+                <span data-i18n="templates.new">Nouveau modèle</span>
+            </button>
+        </div>
+        <div id="templates-table"></div>
+    </section>
+
+    <!-- Landing pages -->
+    <section class="panel" id="panel-landings" style="display:none">
+        <div class="panel-header">
+            <h2 data-i18n="landings.title">Pages d'atterrissage</h2>
+            <button class="btn btn-primary" data-click="_phishNewLanding">
+                <span data-i18n="landings.new">Nouvelle page</span>
+            </button>
+        </div>
+        <p class="muted" data-i18n="landings.no_password" style="max-width:720px">
+            Note de conception : même quand une page expose un formulaire,
+            le backend ne stocke jamais les valeurs saisies — seulement la
+            liste des champs et leur longueur.
+        </p>
+        <div id="landings-table"></div>
+    </section>
+
+    <!-- Groups -->
+    <section class="panel" id="panel-groups" style="display:none">
+        <div class="panel-header">
+            <h2 data-i18n="groups.title">Groupes & cibles</h2>
+            <button class="btn btn-primary" data-click="_phishNewGroup">
+                <span data-i18n="groups.new">Nouveau groupe</span>
+            </button>
+        </div>
+        <div id="groups-table"></div>
+    </section>
+
+    <!-- Settings -->
+    <section class="panel" id="panel-settings" style="display:none">
+        <div class="panel-header">
+            <h2 data-i18n="settings.title">Profils SMTP & paramètres</h2>
+            <button class="btn btn-primary" data-click="_phishNewSendingProfile">
+                <span data-i18n="settings.new">Nouveau profil SMTP</span>
+            </button>
+        </div>
+        <div id="sprofiles-table"></div>
+    </section>
+
+</main>
+</div>
+
+<!-- Help overlay -->
+<div class="help-overlay" id="help-overlay" data-click-self="toggleHelp">
+<div class="help-panel">
+<button class="close-help" data-click="toggleHelp">&times;</button>
+<div class="help-tabs">
+    <div class="help-tab active" id="help-tab-methodo" data-click="switchHelpTab" data-args='["methodo"]' data-i18n="help.tab_methodo">Méthodologie</div>
+    <div class="help-tab" id="help-tab-usage" data-click="switchHelpTab" data-args='["usage"]' data-i18n="help.tab_usage">Utilisation</div>
+</div>
+<div class="help-content" id="help-content-methodo" data-i18n-html="help.methodo"></div>
+<div class="help-content" id="help-content-usage" data-i18n-html="help.usage" style="display:none"></div>
+</div>
+</div>
+
+<!-- Modals container (filled by Phish_app.js / ct_modal.js helpers) -->
+<div id="modal-root"></div>
+
+<script src="js/phish_config.js"></script>
+<script src="js/cisotoolbox.js"></script>
+<script src="js/ct_modal.js"></script>
+<script src="js/ct_bulkbar.js"></script>
+<script src="js/ct_table.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/i18n_core_en.js"></script>
+<script src="js/i18n_core_fr.js"></script>
+<script src="js/Phish_i18n_fr.js"></script>
+<script src="js/phish_api.js"></script>
+<script src="js/phish_ai.js"></script>
+<script src="js/Phish_crud.js"></script>
+<script src="js/Phish_app.js"></script>
+</body>
+</html>

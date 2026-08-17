@@ -1,0 +1,81 @@
+/* Phish — login page. Self-contained: do not rely on app shell CSS. */
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px 36px 28px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 380px;
+    box-sizing: border-box;
+}
+
+.login-logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #1e3a8a;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    color: #6b7280;
+    font-size: 0.9em;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.login-error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 14px;
+    font-size: 0.85em;
+}
+
+.login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    background: #fff;
+    color: #1f2937;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    transition: background 0.15s;
+}
+.login-btn:hover {
+    background: #f9fafb;
+}
+
+.login-footer {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 0.78em;
+    color: #9ca3af;
+}
+.login-footer a {
+    color: inherit;
+    text-decoration: none;
+}
+.login-footer a:hover {
+    text-decoration: underline;
+}

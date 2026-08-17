@@ -1,0 +1,27 @@
+# Standalone phish (phishing simulation)
+# SQLite-backed — no separate DB service. Data persists in a Docker volume.
+services:
+  phish-app:
+    build: .
+    container_name: ciso-phish-standalone
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:////data/phish.db
+      - JWT_SECRET=${JWT_SECRET:-change-me-in-prod}
+      - APP_URL=${APP_URL:-http://localhost:8091}
+      - AUTH_MODE=standalone
+      - MODULE_NAME=phish
+      - MODULE_COOKIE=phish_token
+    ports:
+      - "8091:8080"
+    volumes:
+      - phish-data:/data
+    networks:
+      - phish-net
+
+volumes:
+  phish-data:
+
+networks:
+  phish-net:
