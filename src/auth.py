@@ -1,7 +1,7 @@
 """Auth module — thin wrapper over auth_common.py with Phish-specific overrides.
 
 Phish defaults to AUTH_MODE=standalone and adds assert_auth_configured().
-Edit the shared auth logic in shared/python/auth_common.py, not here.
+Edit the shared auth logic in auth_common.py, not here.
 """
 import os
 

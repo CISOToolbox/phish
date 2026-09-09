@@ -4,8 +4,8 @@
 phish shipped with no at-rest crypto: the SMTP relay password and the M365
 client secret were written to the database in cleartext, so a stolen pg_dump
 or a DB-volume read handed over live sending credentials (pre-publication
-audit, finding M-A). settings_crypto (AES-256-GCM, propagated from the shared
-master) now encrypts both.
+audit, finding M-A). settings_crypto (AES-256-GCM, identical in every module)
+now encrypts both.
 
 This test pins the two invariants that keep it working:
   1. a stored secret carries the enc:v1: marker and decrypts back to the

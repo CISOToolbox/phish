@@ -98,7 +98,7 @@
 .m365-card:empty { display: none; }
 
 /* Settings panel — identical to the .ai-panel component of the other
-   CISO Toolbox modules (verbatim from shared/js/ai_common.js). */
+   CISO Toolbox modules (verbatim from ai_common.js). */
 .ai-overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.3); z-index:500; }
 .ai-overlay.open { display:block; }
 .ai-panel { display:none; position:fixed; top:0; right:-720px; width:700px; max-width:90vw; height:100vh; background:white; box-shadow:-4px 0 24px rgba(0,0,0,0.2); z-index:501; transition:right 0.3s; overflow-y:auto; }

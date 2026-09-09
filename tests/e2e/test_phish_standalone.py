@@ -5,7 +5,7 @@ has just started, and that break first when the packaging drifts.
 
   1. the stack boots and reports healthy
   2. the SPA is served and every asset it references resolves
-  3. the assets replicated from the shared repository still carry their banner
+  3. the shared frontend assets still carry their generated-file banner
   4. the authentication posture is the standalone one, and it fails closed
   5. the standalone login journey works end to end
 
@@ -67,7 +67,7 @@ def test_every_referenced_asset_resolves(client):
 
 
 def test_replicated_frontend_assets_keep_their_generated_header(client):
-    """Shared JS distributed by `shared/ts-build.sh` keeps its GENERATED banner.
+    """Shared JS keeps its generated-file banner.
 
     Losing the banner means a generated file was hand-edited in the module -
     the edit will be silently overwritten by the next build. See CONTRIBUTING.md.
@@ -83,7 +83,7 @@ def test_replicated_frontend_assets_keep_their_generated_header(client):
         pytest.skip("this module serves no shared frontend asset")
     for path in shared:
         head = client.get(path).text[:400]
-        assert "GENERATED from shared/" in head, (
+        assert "Generated file - do not edit" in head, (
             "%s lost its GENERATED header - it was probably hand-edited" % path
         )
 
