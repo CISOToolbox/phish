@@ -7,7 +7,7 @@ pydantic==2.12.5
 httpx==0.28.1
 python-multipart==0.0.31        # DEP-02 — GHSA-5rvq-cxj2-64vf (HIGH)
 authlib==1.6.12
-PyJWT[crypto]==2.14.0           # DEP-03 — GHSA-xgmm-8j9v-c9wx (HIGH)
+PyJWT[crypto]==2.15.0           # DEP-03 — GHSA-xgmm-8j9v-c9wx (HIGH)
 aiosmtplib==5.1.2
 jinja2==3.1.6
 playwright==1.51.0
