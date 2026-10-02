@@ -192,8 +192,7 @@ window._noop = _noop;
 // CT_COLORS for the palette. They are deliberately compact and
 // opinionated — if you need flexibility, compose several of them.
 //
-// See shared/docs/pilot-dashboard-contract.md for the data shapes
-// each helper expects.
+// Each helper's header comment documents the data shape it expects.
 
 function _svgEsc(v) { return String(v == null ? "" : v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
