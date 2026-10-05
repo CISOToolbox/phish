@@ -1,3 +1,8 @@
+> **⚠️ This repository is retired.** The CISO Toolbox phishing-simulation
+> tool is now **[CISOToolbox/gophish](https://github.com/CISOToolbox/gophish)**,
+> a maintained standalone fork of [gophish](https://github.com/gophish/gophish).
+> This repository is archived and read-only — use CISOToolbox/gophish instead.
+
 # CISO Toolbox - Phish (standalone)
 
 Authorised phishing simulation platform: sending profiles, landing pages, email templates, target groups, campaigns and awareness reporting.
